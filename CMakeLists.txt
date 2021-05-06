@@ -215,7 +215,7 @@ macro(REMOVE_MATCHING_FILES_FROM_LIST match_expr lst_files)
 endmacro(REMOVE_MATCHING_FILES_FROM_LIST)
 
 if(WITH_CUDA)
-	find_package(cuda)
+	find_package(CUDA)
 	if(${CUDA_FOUND})
 		add_definitions(-DGPU_BLAS)
 	endif(${CUDA_FOUND})
@@ -224,7 +224,7 @@ endif()
 hunter_add_package(LAPACK) # only in effect if HUNTER_ENABLED is set
 # prefer LAPACK config file
 if (WIN32)
-  set(LAPACK_DIR "lapack_windows/x64/" CACHE PATH "LAPACK directory" )
+#  set(LAPACK_DIR "lapack_windows/x64/" CACHE PATH "LAPACK directory" )
 endif()
 
 find_package(LAPACK CONFIG)
